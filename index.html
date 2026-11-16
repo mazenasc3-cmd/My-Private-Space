@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0a0b10">
 <meta name="description" content="مازن مدحت — طالب حاسبات وذكاء اصطناعي بجامعة مدينة السادات. مساحة رقمية شخصية للمشاريع والأعمال.">
+<meta name="author" content="Mazen Medhat">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mazen Medhat · Personal Portfolio">
+<meta property="og:description" content="طالب حاسبات وذكاء اصطناعي · جامعة مدينة السادات — مساحة رقمية شخصية.">
 <title>Mazen Medhat · Personal Portfolio</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230a0b10'/%3E%3Ctext x='50' y='68' font-size='52' font-family='sans-serif' font-weight='bold' text-anchor='middle' fill='%23f4deab'%3EMM%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,21 +43,21 @@ a{color:inherit;text-decoration:none}
 button,input,textarea,select{font:inherit;color:inherit}
 button{cursor:pointer}
 img{max-width:100%;display:block}
-#stars{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;opacity:.55}
+#stars{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;opacity:.5}
 .wrap{width:min(1180px,calc(100% - 48px));margin:auto}
 .mono{font-family:"Space Grotesk",Manrope,sans-serif}
 
 #progress{position:fixed;top:0;right:0;height:3px;width:0;z-index:100;background:linear-gradient(90deg,var(--gold),var(--gold2));box-shadow:0 0 18px rgba(217,185,111,.6)}
 
 .nav{height:78px;position:sticky;top:0;z-index:60;background:rgba(10,11,16,.72);backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%);border-bottom:1px solid var(--line2);transition:.3s}
-.nav.scrolled{height:68px;background:rgba(10,11,16,.9)}
+.nav.scrolled{height:68px;background:rgba(10,11,16,.92)}
 .nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:18px}
 .brand{display:flex;align-items:center;gap:12px;font-family:"Space Grotesk",Manrope,sans-serif;font-weight:700;letter-spacing:.04em;font-size:15px}
 .brand-mark{width:44px;height:44px;display:grid;place-items:center;border-radius:14px;color:#17130b;background:linear-gradient(135deg,var(--gold2),var(--gold3));box-shadow:0 10px 30px rgba(217,185,111,.28);font-weight:800;transition:.4s var(--ease)}
 .brand:hover .brand-mark{transform:rotate(-8deg) scale(1.05)}
-.nav-links{display:flex;gap:6px;align-items:center}
-.nav-links a{color:#c8c6c0;font-size:13.5px;font-weight:600;padding:9px 15px;border-radius:999px;transition:.25s;position:relative}
-.nav-links a:hover{color:var(--gold2);background:rgba(217,185,111,.08)}
+.nav-links{display:flex;gap:4px;align-items:center}
+.nav-links a{color:#c8c6c0;font-size:13.5px;font-weight:600;padding:9px 14px;border-radius:999px;transition:.25s;position:relative}
+.nav-links a:hover,.nav-links a.active{color:var(--gold2);background:rgba(217,185,111,.09)}
 .nav-right{display:flex;align-items:center;gap:10px}
 
 .btn{border:1px solid var(--line);border-radius:999px;padding:12px 22px;background:rgba(217,185,111,.07);color:var(--gold2);font-weight:700;font-size:13.5px;transition:.3s var(--ease);display:inline-flex;align-items:center;justify-content:center;gap:9px;white-space:nowrap}
@@ -79,14 +83,15 @@ img{max-width:100%;display:block}
 .meta strong{display:block;color:var(--gold2);font:700 20px "Space Grotesk",sans-serif;direction:ltr}
 .meta small{color:var(--muted2);font-size:11.5px;font-weight:600}
 
-.hero-visual{height:min(660px,74vh);min-height:440px;position:relative;display:flex;align-items:flex-end;justify-content:center;isolation:isolate}
-.visual-glow{position:absolute;width:76%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(217,185,111,.30),transparent 68%);filter:blur(26px);top:6%;left:12%;animation:glow 7s ease-in-out infinite}
-.visual-ring{position:absolute;width:82%;aspect-ratio:1;border:1px solid rgba(217,185,111,.35);border-radius:50%;top:7%;left:9%;animation:spin 40s linear infinite}
+.hero-visual{height:min(660px,74vh);min-height:440px;position:relative;display:flex;align-items:center;justify-content:center;isolation:isolate}
+.visual-glow{position:absolute;width:78%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(217,185,111,.30),transparent 68%);filter:blur(26px);top:4%;left:11%;animation:glow 7s ease-in-out infinite}
+.visual-ring{position:absolute;width:84%;aspect-ratio:1;border:1px solid rgba(217,185,111,.35);border-radius:50%;top:6%;left:8%;animation:spin 40s linear infinite}
 .visual-ring:before,.visual-ring:after{content:"";position:absolute;border:1px solid rgba(217,185,111,.18);border-radius:50%;inset:10%}
 .visual-ring:after{inset:22%;border-style:dashed}
-.welcome-word{position:absolute;top:24%;left:50%;transform:translateX(-50%);font:700 clamp(52px,9vw,116px) "Space Grotesk",sans-serif;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px rgba(244,222,171,.42);white-space:nowrap;z-index:1;animation:welcome 6s ease-in-out infinite}
-.hero-cutout{position:relative;z-index:2;max-height:100%;max-width:106%;width:auto;object-fit:contain;object-position:bottom;filter:drop-shadow(0 30px 50px rgba(0,0,0,.6));animation:float 6s ease-in-out infinite}
-.photo-badge{position:absolute;z-index:3;bottom:10%;right:0;background:rgba(20,23,32,.82);border:1px solid var(--line);border-radius:18px;padding:14px 18px;backdrop-filter:blur(14px);box-shadow:var(--shadow)}
+.welcome-word{position:absolute;top:12%;left:50%;transform:translateX(-50%);font:700 clamp(52px,9vw,116px) "Space Grotesk",sans-serif;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px rgba(244,222,171,.42);white-space:nowrap;z-index:1;animation:welcome 6s ease-in-out infinite}
+.hero-photo{position:relative;z-index:2;width:min(78%,420px);aspect-ratio:3/4;object-fit:cover;object-position:center top;border-radius:28px;border:1px solid var(--line);box-shadow:0 30px 70px -18px rgba(0,0,0,.8);animation:float 6s ease-in-out infinite}
+.hero-photo:after{content:"";position:absolute;inset:0;border-radius:28px;background:linear-gradient(180deg,transparent 55%,rgba(8,9,13,.55));pointer-events:none}
+.photo-badge{position:absolute;z-index:3;bottom:12%;right:2%;background:rgba(20,23,32,.86);border:1px solid var(--line);border-radius:18px;padding:14px 18px;backdrop-filter:blur(14px);box-shadow:var(--shadow)}
 .photo-badge b{display:block;color:var(--gold2);font-size:13px;font-weight:800}
 .photo-badge small{color:var(--muted);font:11px "Space Grotesk",sans-serif}
 
@@ -114,14 +119,36 @@ img{max-width:100%;display:block}
 .panel h3{margin:0 0 14px;font-size:19px;font-weight:800;display:flex;align-items:center;gap:10px}
 .panel h3 i{color:var(--gold)}
 .panel p{color:#b4b5bd;line-height:2.05;font-size:14.5px;margin:0}
-.skills{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
-.skill{border:1px solid var(--line);background:rgba(217,185,111,.05);padding:15px;border-radius:14px;color:#ecd9ae;font-size:13px;font-weight:600;display:flex;gap:11px;align-items:center;transition:.3s}
-.skill:hover{background:rgba(217,185,111,.12);transform:translateX(-4px)}
-.skill i{color:var(--gold);font-size:15px}
-.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
 .stat{background:rgba(255,255,255,.02);border:1px solid var(--line2);border-radius:16px;padding:18px}
 .stat b{display:block;font:700 26px "Space Grotesk",sans-serif;color:var(--gold2);direction:ltr}
 .stat small{color:var(--muted);font-size:12px;font-weight:600}
+
+/* skills with bars */
+.skill-bars{display:grid;gap:18px}
+.skill-bar .sb-top{display:flex;justify-content:space-between;font-size:13.5px;font-weight:600;margin-bottom:9px}
+.skill-bar .sb-top span:last-child{color:var(--gold2);font-family:"Space Grotesk",sans-serif}
+.sb-track{height:8px;background:rgba(255,255,255,.06);border-radius:999px;overflow:hidden}
+.sb-fill{height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--gold3),var(--gold2));transition:width 1.4s var(--ease)}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.service{background:var(--panel);border:1px solid var(--line2);border-radius:22px;padding:30px;transition:.4s var(--ease);position:relative;overflow:hidden}
+.service:hover{transform:translateY(-8px);border-color:rgba(217,185,111,.4);box-shadow:0 26px 50px -22px rgba(0,0,0,.7)}
+.service .s-ico{width:56px;height:56px;display:grid;place-items:center;border-radius:16px;background:rgba(217,185,111,.09);color:var(--gold2);font-size:23px;margin-bottom:20px;transition:.4s}
+.service:hover .s-ico{background:linear-gradient(135deg,var(--gold2),var(--gold3));color:#17130b;transform:rotate(-6deg) scale(1.06)}
+.service h3{font-size:17.5px;margin:0 0 10px;font-weight:800}
+.service p{font-size:13px;color:var(--muted);line-height:1.95;margin:0}
+
+/* timeline */
+.timeline{position:relative;padding-right:26px}
+.timeline:before{content:"";position:absolute;right:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--gold),transparent)}
+.tl-item{position:relative;padding:0 34px 34px 0}
+.tl-item:last-child{padding-bottom:0}
+.tl-item:before{content:"";position:absolute;right:0;top:5px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:2px solid var(--gold);box-shadow:0 0 0 5px rgba(217,185,111,.12)}
+.tl-date{font:700 12px "Space Grotesk",sans-serif;color:var(--gold2);letter-spacing:.1em;margin-bottom:5px}
+.tl-item h3{font-size:16.5px;margin:0 0 5px;font-weight:800}
+.tl-item p{color:var(--muted);font-size:13.5px;line-height:1.9;margin:0}
 
 .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .project{background:var(--panel);border:1px solid var(--line2);border-radius:20px;padding:26px;display:flex;flex-direction:column;min-height:270px;transition:.4s var(--ease);position:relative;overflow:hidden}
@@ -137,6 +164,17 @@ img{max-width:100%;display:block}
 .project-actions a,.project-actions button{background:none;border:0;color:#a9aab2;padding:4px 8px;border-radius:8px;transition:.25s;font-size:12px;display:inline-flex;align-items:center;gap:6px}
 .project-actions a:hover,.project-actions button:hover{color:var(--gold2);background:rgba(217,185,111,.1)}
 .add-project{margin-top:26px;display:flex;justify-content:center}
+
+/* contact form */
+.contact-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:20px}
+.contact-info{display:grid;gap:14px;align-content:start}
+.ci-item{display:flex;align-items:center;gap:15px;padding:18px;border:1px solid var(--line2);border-radius:16px;background:var(--panel);transition:.3s}
+.ci-item:hover{border-color:rgba(217,185,111,.4);transform:translateX(-4px)}
+.ci-ico{width:44px;height:44px;flex:none;display:grid;place-items:center;background:rgba(217,185,111,.09);color:var(--gold2);border-radius:13px;font-size:18px}
+.ci-item b{display:block;font-size:13.5px}.ci-item small{color:var(--muted2);font-size:11.5px;font-family:"Space Grotesk",sans-serif}
+.contact-form{background:linear-gradient(150deg,var(--panel2),var(--panel));border:1px solid var(--line2);border-radius:var(--radius);padding:32px}
+.contact-form h3{margin:0 0 6px;font-size:19px;font-weight:800}
+.contact-form .cf-sub{color:var(--muted);font-size:13px;margin:0 0 20px}
 
 .socials{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .social{display:flex;align-items:center;gap:16px;padding:22px;border:1px solid var(--line2);border-radius:18px;background:var(--panel);transition:.35s var(--ease);position:relative;overflow:hidden}
@@ -185,6 +223,10 @@ footer .mono{color:var(--muted);letter-spacing:.05em}
 #lightbox img{max-width:92%;max-height:88vh;border-radius:16px;box-shadow:0 40px 90px #000;animation:pop .35s var(--ease)}
 #lightbox .lb-close{position:absolute;top:22px;left:22px;width:46px;height:46px;border-radius:14px;border:1px solid var(--line2);background:rgba(255,255,255,.06);color:#fff;font-size:22px}
 
+#toTop{position:fixed;bottom:22px;right:22px;z-index:95;width:48px;height:48px;border-radius:14px;border:1px solid var(--line);background:rgba(20,23,32,.9);color:var(--gold2);font-size:18px;display:grid;place-items:center;backdrop-filter:blur(14px);opacity:0;pointer-events:none;transition:.35s var(--ease)}
+#toTop.show{opacity:1;pointer-events:auto}
+#toTop:hover{transform:translateY(-4px);border-color:var(--gold)}
+
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(143,224,162,.6)}70%{box-shadow:0 0 0 10px rgba(143,224,162,0)}100%{box-shadow:0 0 0 0 rgba(143,224,162,0)}}
 @keyframes spin{to{transform:rotate(360deg)}}
 @keyframes glow{50%{transform:scale(1.1);opacity:.7}}
@@ -201,7 +243,9 @@ footer .mono{color:var(--muted);letter-spacing:.05em}
   .hero-copy{order:1}.hero-visual{order:0;height:440px;min-height:340px}
   .gallery{grid-template-columns:1fr 1fr}.gallery-card:first-child{grid-column:span 2}
   .about-grid{grid-template-columns:1fr}
+  .services{grid-template-columns:1fr 1fr}
   .projects{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr}
   .socials{grid-template-columns:1fr 1fr}
   .section{padding:80px 0}
   .section-head{flex-direction:column;align-items:flex-start;gap:14px}
@@ -212,12 +256,13 @@ footer .mono{color:var(--muted);letter-spacing:.05em}
   .hero h1{letter-spacing:-1.5px}
   .hero-meta{gap:22px}
   .gallery{grid-template-columns:1fr}.gallery-card:first-child{grid-column:auto}
+  .services{grid-template-columns:1fr}
   .projects{grid-template-columns:1fr}
   .socials{grid-template-columns:1fr}
-  .skills{grid-template-columns:1fr}
   .field-row{grid-template-columns:1fr}
   .photo-badge{padding:11px 14px}
   .brand span:last-child{display:none}
+  #adminBar,#toTop{bottom:16px}
 }
 @media(prefers-reduced-motion:reduce){
   *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
@@ -235,9 +280,11 @@ footer .mono{color:var(--muted);letter-spacing:.05em}
       <span class="brand-mark">MM</span>
       <span class="mono">MAZEN MEDHAT</span>
     </a>
-    <nav class="nav-links">
+    <nav class="nav-links" id="navLinks">
       <a href="#about">نبذة عني</a>
+      <a href="#skills">مهاراتي</a>
       <a href="#gallery">معرض الصور</a>
+      <a href="#services">خدماتي</a>
       <a href="#projects">المشاريع</a>
       <a href="#contact">تواصل معي</a>
     </nav>
@@ -258,6 +305,7 @@ footer .mono{color:var(--muted);letter-spacing:.05em}
     <div class="hero-actions">
       <a class="btn primary" href="#projects">اكتشف مشاريعي <i class="fa-solid fa-arrow-left"></i></a>
       <a class="btn ghost" href="#contact">خلّينا نتواصل <i class="fa-regular fa-paper-plane"></i></a>
+      <button class="btn ghost" id="cvBtn" onclick="downloadCV()"><i class="fa-solid fa-download"></i> تحميل السيرة</button>
     </div>
     <div class="hero-meta">
       <div class="meta"><strong class="mono">FCAI</strong><small>كلية الحاسبات والذكاء الاصطناعي</small></div>
@@ -269,7 +317,7 @@ footer .mono{color:var(--muted);letter-spacing:.05em}
     <div class="visual-glow"></div>
     <div class="visual-ring"></div>
     <div class="welcome-word">WELCOME</div>
-    <img class="hero-cutout" id="heroCutout" src="assets/portrait.png" alt="صورة مازن مدحت">
+    <img class="hero-photo" id="heroPhoto" src="assets/photo5.webp" alt="مازن مدحت">
     <div class="photo-badge"><b>WELCOME TO MY SPACE</b><small class="mono">PERSONAL PORTFOLIO · 2026</small></div>
   </div>
 </section>
@@ -286,24 +334,48 @@ footer .mono{color:var(--muted);letter-spacing:.05em}
       <div class="stat-row" id="statRow"></div>
     </div>
     <div class="panel">
-      <h3><i class="fa-solid fa-layer-group"></i> اهتماماتي</h3>
-      <p>أركز على تطوير مهاراتي في البرمجة، حل المشكلات، وتصميم واجهات استخدام واضحة وسلسة.</p>
-      <div class="skills" id="skillList"></div>
+      <h3><i class="fa-solid fa-compass-drafting"></i> هدفي</h3>
+      <p>أن أبني مسارًا مهنيًا في مجال الذكاء الاصطناعي وتطوير البرمجيات، وأن أشارك في مشاريع حقيقية تضيف قيمة، مع تعلّم مستمر واهتمام بالتفاصيل وتجربة المستخدم.</p>
+      <div class="skills" id="skillList" style="margin-top:22px"></div>
     </div>
   </div>
 </div></section>
 
+<section class="section" id="skills"><div class="wrap">
+  <div class="section-head reveal">
+    <div><div class="kicker">02 / SKILLS</div><h2>مهاراتي <span class="accent">وقدراتي</span></h2></div>
+    <p>مجموعة المهارات التقنية التي أعمل على تطويرها بشكل مستمر.</p>
+  </div>
+  <div class="panel reveal" id="skillBars"></div>
+</div></section>
+
 <section class="section" id="gallery"><div class="wrap">
   <div class="section-head reveal">
-    <div><div class="kicker">02 / PHOTO JOURNAL</div><h2>لحظات <span class="accent">من رحلتي</span></h2></div>
+    <div><div class="kicker">03 / PHOTO JOURNAL</div><h2>لحظات <span class="accent">من رحلتي</span></h2></div>
     <p>مجموعة من الصور، مع إمكانية التعديل والإضافة من لوحة التحكم.</p>
   </div>
   <div class="gallery reveal" id="galleryGrid"></div>
 </div></section>
 
+<section class="section" id="services"><div class="wrap">
+  <div class="section-head reveal">
+    <div><div class="kicker">04 / SERVICES</div><h2>ما <span class="accent">أقدّمه</span></h2></div>
+    <p>مجالات العمل التي أحبّها وأركّز فيها خلال مشاريعي.</p>
+  </div>
+  <div class="services reveal" id="servicesGrid"></div>
+</div></section>
+
+<section class="section" id="journey"><div class="wrap">
+  <div class="section-head reveal">
+    <div><div class="kicker">05 / MY JOURNEY</div><h2>رحلتي <span class="accent">العلمية</span></h2></div>
+    <p>محطات مختصرة في مساري الأكاديمي والمهني.</p>
+  </div>
+  <div class="panel reveal"><div class="timeline" id="timeline"></div></div>
+</div></section>
+
 <section class="section" id="projects"><div class="wrap">
   <div class="section-head reveal">
-    <div><div class="kicker">03 / SELECTED WORK</div><h2>مشاريعي <span class="accent">وأعمالي</span></h2></div>
+    <div><div class="kicker">06 / SELECTED WORK</div><h2>مشاريعي <span class="accent">وأعمالي</span></h2></div>
     <p>أضف مشاريعك وروابطها، وسيتم عرضها تلقائيًا في هذه المساحة.</p>
   </div>
   <div class="projects" id="projectsGrid"></div>
@@ -314,14 +386,32 @@ footer .mono{color:var(--muted);letter-spacing:.05em}
 
 <section class="section" id="contact"><div class="wrap">
   <div class="section-head reveal">
-    <div><div class="kicker">04 / LET'S CONNECT</div><h2>تواصل <span class="accent">معي</span></h2></div>
-    <p>يمكنك الوصول إليّ من خلال حساباتي. سعيد بأي تواصل أو تعاون.</p>
+    <div><div class="kicker">07 / LET'S CONNECT</div><h2>تواصل <span class="accent">معي</span></h2></div>
+    <p>يمكنك الوصول إليّ من خلال حساباتي، أو إرسال رسالة مباشرة.</p>
   </div>
-  <div class="socials reveal" id="socialGrid"></div>
+  <div class="contact-grid reveal">
+    <div class="contact-info" id="contactInfo"></div>
+    <div class="contact-form">
+      <h3>أرسل لي رسالة</h3>
+      <p class="cf-sub">سأرد عليك في أقرب وقت ممكن.</p>
+      <form onsubmit="sendMessage(event)">
+        <div class="field-row">
+          <div class="field"><label>الاسم</label><input id="cName" required></div>
+          <div class="field"><label>البريد الإلكتروني</label><input id="cEmail" type="email" required></div>
+        </div>
+        <div class="field"><label>الموضوع</label><input id="cSubject" required></div>
+        <div class="field"><label>الرسالة</label><textarea id="cMessage" required></textarea></div>
+        <div class="form-actions"><button class="btn primary"><i class="fa-regular fa-paper-plane"></i> إرسال</button></div>
+      </form>
+    </div>
+  </div>
+  <div class="socials reveal" id="socialGrid" style="margin-top:22px"></div>
 </div></section>
 </main>
 
 <footer><div class="wrap">© <span id="year"></span> <span class="mono">MAZEN MEDHAT</span> · Built with care.</div></footer>
+
+<button id="toTop" aria-label="أعلى الصفحة" onclick="scrollTo({top:0,behavior:'smooth'})"><i class="fa-solid fa-arrow-up"></i></button>
 
 <div id="adminBar">
   <span class="admin-chip"><i class="fa-solid fa-shield-halved"></i> وضع المدير</span>
@@ -379,6 +469,10 @@ footer .mono{color:var(--muted);letter-spacing:.05em}
         <div class="field"><label>GitHub URL</label><input id="sGithub" type="url"></div>
         <div class="field"><label>Email</label><input id="sEmail" type="email"></div>
       </div>
+      <div class="field-row">
+        <div class="field"><label>رابط السيرة الذاتية (PDF)</label><input id="sCv" type="url" placeholder="https://.../cv.pdf"></div>
+        <div class="field"><label>صورة الهيرو</label><input id="sHero" placeholder="assets/photo5.webp"></div>
+      </div>
       <div class="form-actions"><button type="button" class="btn ghost" onclick="closeModal('settingsModal')">إلغاء</button><button class="btn primary"><i class="fa-solid fa-floppy-disk"></i> حفظ</button></div>
     </form>
   </div>
@@ -387,231 +481,6 @@ footer .mono{color:var(--muted);letter-spacing:.05em}
 <div class="toast" id="toast"><i class="fa-solid fa-circle-check"></i><span id="toastMsg"></span></div>
 <div id="lightbox"><button class="lb-close" onclick="closeLightbox()">×</button><img id="lbImg" alt=""></div>
 
-<script>
-/* My-Private-Space · data + admin layer.
-   Reads from window.SITE_DATA (server-injected) -> /api/data -> localStorage -> DEFAULTS.
-   DataStore.save() tries POST /api/data (your Vercel API) then falls back to localStorage. */
-const ADMIN_PASSWORD_HASH = "b33b653a50da45bba3409e563f479875fc2e3a379d8a478bd515f5594de12200"; // default: Mazen@2026
-const SESSION_KEY = "mps_admin_session";
-const DATA_KEY = "mps_data_v1";
-
-const DEFAULTS = {
-  name:"مازن مدحت",
-  enName:"MAZEN MEDHAT",
-  eyebrow:"طالب حاسبات وذكاء اصطناعي · جامعة مدينة السادات",
-  bio:"أهلاً بك في مساحتي الرقمية. أدرس بكلية الحاسبات والذكاء الاصطناعي بجامعة مدينة السادات، وأهتم بالبرمجة وبناء تجارب رقمية نظيفة وسريعة.",
-  aboutText:"أنا مازن مدحت، طالب بكلية الحاسبات والذكاء الاصطناعي – جامعة مدينة السادات. أحب استكشاف التقنيات الجديدة وبناء واجهات استخدام واضحة وسلسة، وأسعى دائمًا لتطوير مهاراتي في البرمجة وحل المشكلات.",
-  instagram:"",tiktok:"",whatsapp:"",linkedin:"",github:"",email:"",
-  skills:[
-    ["البرمجة وحل المشكلات","fa-solid fa-code"],
-    ["هياكل البيانات والخوارزميات","fa-solid fa-diagram-project"],
-    ["تصميم واجهات المستخدم","fa-solid fa-wand-magic-sparkles"],
-    ["الذكاء الاصطناعي وتعلّم الآلة","fa-solid fa-brain"]
-  ],
-  stats:[["FCAI","الكلية"],["USC","الجامعة"],["2026","دفعة"]],
-  photos:["assets/photo1.webp","assets/photo3.webp","assets/photo4.webp","assets/photo2.webp","assets/photo5.webp"],
-  projects:[
-    {id:1,title:"بوابة طلاب FCAI - USC",desc:"منصة لتنظيم المحتوى الأكاديمي والروابط والموارد الطلابية.",tags:["HTML","CSS","JavaScript"],github:"",live:""},
-    {id:2,title:"محاكي الخوارزميات",desc:"فكرة مشروع لعرض خطوات الخوارزميات وهياكل البيانات بصورة تفاعلية.",tags:["C++","Algorithms"],github:"",live:""},
-    {id:3,title:"لوحة إدارة المهام",desc:"واجهة لإدارة المهام اليومية مع تجربة استخدام بسيطة وسريعة.",tags:["JavaScript","UI Design"],github:"",live:""}
-  ]
-};
-
-const $ = id => document.getElementById(id);
-const safe = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-
-const DataStore = {
-  async load(){
-    if (window.SITE_DATA) return window.SITE_DATA;
-    try{
-      const r = await fetch("/api/data", {headers:{Accept:"application/json"}});
-      if (r.ok){ const j = await r.json(); if (j && typeof j === "object") return j; }
-    }catch(_){}
-    try{ const ls = JSON.parse(localStorage.getItem(DATA_KEY) || "null"); if (ls) return ls; }catch(_){}
-    return null;
-  },
-  async save(data){
-    try{
-      const r = await fetch("/api/data", {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(data)});
-      if (r.ok) return "server";
-    }catch(_){}
-    localStorage.setItem(DATA_KEY, JSON.stringify(data));
-    return "local";
-  }
-};
-
-let data = structuredClone(DEFAULTS);
-let admin = false;
-
-function toast(msg){ $("toastMsg").textContent = msg; $("toast").classList.add("show"); clearTimeout(toast._t); toast._t = setTimeout(()=>$("toast").classList.remove("show"), 2600); }
-function closeModal(id){ $(id).classList.remove("open"); }
-function openModal(id){ $(id).classList.add("open"); }
-
-function renderAll(){ renderHero(); renderAbout(); renderGallery(); renderProjects(); renderSocials(); }
-
-function renderHero(){
-  $("heroName").textContent = data.name;
-  $("heroEnName").textContent = data.enName || "";
-  $("heroBio").textContent = data.bio;
-  $("eyebrowText").textContent = data.eyebrow || "";
-}
-
-function renderAbout(){
-  $("aboutBio").textContent = data.aboutText || data.bio;
-  $("statRow").innerHTML = (data.stats||[]).map(([b,s])=>`<div class="stat"><b class="mono">${safe(b)}</b><small>${safe(s)}</small></div>`).join("");
-  $("skillList").innerHTML = (data.skills||[]).map(([t,ic])=>`<div class="skill"><i class="${safe(ic)}"></i> ${safe(t)}</div>`).join("");
-}
-
-function renderGallery(){
-  const labels = ["A MOMENT IN THE STUDIO","CAMPUS DAYS","PORTRAIT","MIRROR MOMENT","OUTDOOR PORTRAIT"];
-  $("galleryGrid").innerHTML = (data.photos||[]).map((src,i)=>
-    `<article class="gallery-card" onclick="openLightbox('${src}')"><img loading="lazy" src="${src}" alt="Mazen Medhat photo ${i+1}"><div class="gallery-label"><span>${labels[i]||("MOMENT "+(i+1))}</span><span class="mono">${String(i+1).padStart(2,"0")}</span></div></article>`
-  ).join("");
-}
-
-function renderProjects(){
-  const list = data.projects || [];
-  $("projectsGrid").innerHTML = list.length ? list.map((p,i)=>`
-    <article class="project">
-      <div class="project-top"><span class="mono">PROJECT / ${String(i+1).padStart(2,"0")}</span>
-        <span>${admin?`<button onclick="editProject(${p.id})" aria-label="تعديل" style="background:none;border:0;color:var(--gold)"><i class="fa-solid fa-pen"></i></button> <button onclick="deleteProject(${p.id})" aria-label="حذف" style="background:none;border:0;color:#ff9d9d"><i class="fa-solid fa-trash"></i></button>`:""}</span>
-      </div>
-      <h3>${safe(p.title)}</h3>
-      <p>${safe(p.desc)}</p>
-      <div class="tags">${(p.tags||[]).map(t=>`<span class="tag">${safe(t)}</span>`).join("")}</div>
-      <div class="project-actions">
-        ${p.github?`<a href="${safe(p.github)}" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> الكود</a>`:"<span></span>"}
-        ${p.live?`<a href="${safe(p.live)}" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> معاينة</a>`:"<span></span>"}
-      </div>
-    </article>`).join("") : `<p style="color:var(--muted)">لا توجد مشاريع بعد.</p>`;
-  $("addProjectWrap").style.display = admin ? "flex" : "none";
-}
-
-function renderSocials(){
-  const items = [
-    ["Instagram","fa-brands fa-instagram", data.instagram, "حساب إنستجرام"],
-    ["TikTok","fa-brands fa-tiktok", data.tiktok, "حساب تيك توك"],
-    ["WhatsApp","fa-brands fa-whatsapp", data.whatsapp ? `https://wa.me/${String(data.whatsapp).replace(/\D/g,"")}` : "", "محادثة مباشرة"],
-    ["LinkedIn","fa-brands fa-linkedin-in", data.linkedin, "الملف المهني"],
-    ["GitHub","fa-brands fa-github", data.github, "المشاريع البرمجية"],
-    ["Email","fa-solid fa-envelope", data.email ? `mailto:${data.email}` : "", "البريد الإلكتروني"]
-  ];
-  $("socialGrid").innerHTML = items.map(([n,ic,url,sub])=>`
-    <a class="social" ${url?`href="${safe(url)}" target="_blank" rel="noopener"`:`aria-disabled="true" style="opacity:.6;cursor:default"`}>
-      <span class="social-icon"><i class="${ic}"></i></span>
-      <span><b class="mono">${n}</b><small>${url?safe(String(url).replace(/^https?:\/\//,"").replace(/^mailto:/,"")):sub}</small></span>
-    </a>`).join("");
-}
-
-async function sha256(txt){
-  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(txt));
-  return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,"0")).join("");
-}
-function setAdmin(on){
-  admin = on;
-  $("adminOpen").style.display = on ? "inline-flex" : "none";
-  $("adminBar").classList.toggle("show", on);
-  renderProjects();
-}
-async function tryLogin(e){
-  e.preventDefault();
-  const pass = $("adminPass").value;
-  if (await sha256(pass) === ADMIN_PASSWORD_HASH){
-    sessionStorage.setItem(SESSION_KEY,"1");
-    setAdmin(true); closeModal("loginModal"); $("adminPass").value=""; toast("تم الدخول بنجاح");
-  } else { toast("كلمة المرور غير صحيحة"); }
-}
-function adminLogout(){ sessionStorage.removeItem(SESSION_KEY); setAdmin(false); toast("تم الخروج"); }
-function openSettings(){
-  if(!admin){ openModal("loginModal"); return; }
-  $("sName").value=data.name; $("sEnName").value=data.enName||""; $("sBio").value=data.bio; $("sEyebrow").value=data.eyebrow||"";
-  $("sInstagram").value=data.instagram; $("sTiktok").value=data.tiktok; $("sWhatsapp").value=data.whatsapp;
-  $("sLinkedin").value=data.linkedin; $("sGithub").value=data.github; $("sEmail").value=data.email;
-  openModal("settingsModal");
-}
-async function saveSettings(e){
-  e.preventDefault();
-  data = {...data,
-    name:$("sName").value.trim(), enName:$("sEnName").value.trim(), bio:$("sBio").value.trim(), eyebrow:$("sEyebrow").value.trim(),
-    instagram:$("sInstagram").value.trim(), tiktok:$("sTiktok").value.trim(), whatsapp:$("sWhatsapp").value.trim(),
-    linkedin:$("sLinkedin").value.trim(), github:$("sGithub").value.trim(), email:$("sEmail").value.trim()
-  };
-  const where = await DataStore.save(data);
-  renderAll(); closeModal("settingsModal");
-  toast(where==="server" ? "تم الحفظ على السيرفر" : "تم الحفظ محليًا");
-}
-
-function openProject(p=null){
-  if(!admin) return openModal("loginModal");
-  $("projectForm").reset();
-  $("projectId").value = p?.id || "";
-  $("projectModalTitle").textContent = p ? "تعديل المشروع" : "إضافة مشروع جديد";
-  if(p){ $("projectTitle").value=p.title; $("projectDesc").value=p.desc; $("projectTags").value=(p.tags||[]).join(", "); $("projectGithub").value=p.github||""; $("projectLive").value=p.live||""; }
-  openModal("projectModal");
-}
-function editProject(id){ openProject((data.projects||[]).find(p=>p.id===id)); }
-async function saveProject(e){
-  e.preventDefault();
-  const id = $("projectId").value;
-  const p = { id: id?Number(id):Date.now(), title:$("projectTitle").value.trim(), desc:$("projectDesc").value.trim(),
-    tags:$("projectTags").value.split(",").map(x=>x.trim()).filter(Boolean), github:$("projectGithub").value.trim(), live:$("projectLive").value.trim() };
-  data.projects = data.projects || [];
-  if(id) data.projects = data.projects.map(x=>x.id===Number(id)?p:x); else data.projects.unshift(p);
-  const where = await DataStore.save(data);
-  renderProjects(); closeModal("projectModal");
-  toast(where==="server" ? "تم حفظ المشروع" : "تم حفظ المشروع محليًا");
-}
-async function deleteProject(id){
-  if(!confirm("هل تريد حذف هذا المشروع؟")) return;
-  data.projects = (data.projects||[]).filter(p=>p.id!==id);
-  await DataStore.save(data); renderProjects(); toast("تم حذف المشروع");
-}
-
-function openLightbox(src){ $("lbImg").src=src; $("lightbox").classList.add("open"); }
-function closeLightbox(){ $("lightbox").classList.remove("open"); }
-
-(async function init(){
-  const loaded = await DataStore.load();
-  if(loaded) data = {...DEFAULTS, ...loaded};
-  renderAll();
-  $("year").textContent = new Date().getFullYear();
-
-  if(sessionStorage.getItem(SESSION_KEY)==="1") setAdmin(true);
-
-  let clicks=0, timer=null;
-  $("brand").addEventListener("click", ()=>{
-    clicks++; clearTimeout(timer); timer=setTimeout(()=>clicks=0,700);
-    if(clicks>=3){ clicks=0; admin?adminLogout():openModal("loginModal"); }
-  });
-  document.addEventListener("keydown", e=>{
-    if(e.shiftKey && (e.key==="A"||e.key==="a")){ e.preventDefault(); admin?adminLogout():openModal("loginModal"); }
-  });
-  if(location.hash==="#admin" && !admin) openModal("loginModal");
-
-  document.querySelectorAll(".modal").forEach(m=>m.addEventListener("click",e=>{ if(e.target===m) m.classList.remove("open"); }));
-  $("lightbox").addEventListener("click",e=>{ if(e.target.id==="lightbox") closeLightbox(); });
-  document.addEventListener("keydown", e=>{ if(e.key==="Escape"){ closeLightbox(); document.querySelectorAll(".modal.open").forEach(m=>m.classList.remove("open")); } });
-
-  const nav=$("nav"), prog=$("progress");
-  const onScroll=()=>{ nav.classList.toggle("scrolled", scrollY>20);
-    const h=document.documentElement.scrollHeight-innerHeight; prog.style.width=(h>0?(scrollY/h*100):0)+"%"; };
-  addEventListener("scroll", onScroll, {passive:true}); onScroll();
-
-  const io=new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add("visible"); io.unobserve(en.target);} }),{threshold:.12});
-  document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
-
-  $("menuBtn").addEventListener("click", ()=>{
-    const t = ["about","gallery","projects","contact"], cur = t.findIndex(id=>location.hash==="#"+id);
-    const next = t[(cur+1)%t.length]; location.hash="#"+next;
-  });
-
-  (()=>{ const c=$("stars"), ctx=c.getContext("2d"); let w,h,dpr,pts=[];
-    function resize(){ dpr=Math.min(devicePixelRatio||1,1.5); w=innerWidth; h=innerHeight; c.width=w*dpr; c.height=h*dpr; c.style.width=w+"px"; c.style.height=h+"px"; ctx.setTransform(dpr,0,0,dpr,0,0);
-      const n=Math.min(Math.floor(w*h/16000),110); pts=Array.from({length:n},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.4+.3,a:Math.random()*.6+.2,s:Math.random()*.25+.05})); }
-    function draw(){ ctx.clearRect(0,0,w,h); for(const p of pts){ p.y-=p.s; if(p.y<0){p.y=h;p.x=Math.random()*w;} ctx.globalAlpha=p.a; ctx.fillStyle="#e9d9a8"; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,7); ctx.fill(); } ctx.globalAlpha=1; requestAnimationFrame(draw); }
-    resize(); addEventListener("resize",resize); draw();
-  })();
-})();
-</script>
+<script src="app.js"></script>
 </body>
 </html>
