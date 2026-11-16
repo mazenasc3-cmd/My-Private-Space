@@ -83,17 +83,41 @@ img{max-width:100%;display:block}
 .meta strong{display:block;color:var(--gold2);font:700 20px "Space Grotesk",sans-serif;direction:ltr}
 .meta small{color:var(--muted2);font-size:11.5px;font-weight:600}
 
-.hero-visual{height:min(660px,74vh);min-height:440px;position:relative;display:flex;align-items:center;justify-content:center;isolation:isolate}
-.visual-glow{position:absolute;width:78%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(217,185,111,.30),transparent 68%);filter:blur(26px);top:4%;left:11%;animation:glow 7s ease-in-out infinite}
-.visual-ring{position:absolute;width:84%;aspect-ratio:1;border:1px solid rgba(217,185,111,.35);border-radius:50%;top:6%;left:8%;animation:spin 40s linear infinite}
-.visual-ring:before,.visual-ring:after{content:"";position:absolute;border:1px solid rgba(217,185,111,.18);border-radius:50%;inset:10%}
-.visual-ring:after{inset:22%;border-style:dashed}
-.welcome-word{position:absolute;top:12%;left:50%;transform:translateX(-50%);font:700 clamp(52px,9vw,116px) "Space Grotesk",sans-serif;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px rgba(244,222,171,.42);white-space:nowrap;z-index:1;animation:welcome 6s ease-in-out infinite}
-.hero-photo{position:relative;z-index:2;width:min(78%,420px);aspect-ratio:3/4;object-fit:cover;object-position:center top;border-radius:28px;border:1px solid var(--line);box-shadow:0 30px 70px -18px rgba(0,0,0,.8);animation:float 6s ease-in-out infinite}
-.hero-photo:after{content:"";position:absolute;inset:0;border-radius:28px;background:linear-gradient(180deg,transparent 55%,rgba(8,9,13,.55));pointer-events:none}
-.photo-badge{position:absolute;z-index:3;bottom:12%;right:2%;background:rgba(20,23,32,.86);border:1px solid var(--line);border-radius:18px;padding:14px 18px;backdrop-filter:blur(14px);box-shadow:var(--shadow)}
+.hero-visual{height:min(680px,76vh);min-height:470px;position:relative;display:flex;align-items:flex-end;justify-content:center;isolation:isolate}
+.visual-glow{position:absolute;width:74%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(217,185,111,.34),transparent 66%);filter:blur(30px);top:10%;left:13%;animation:glow 7s ease-in-out infinite}
+.visual-ring{position:absolute;width:80%;aspect-ratio:1;border:1px solid rgba(217,185,111,.32);border-radius:50%;top:12%;left:10%;animation:spin 44s linear infinite}
+.visual-ring:before,.visual-ring:after{content:"";position:absolute;border:1px solid rgba(217,185,111,.16);border-radius:50%;inset:11%}
+.visual-ring:after{inset:24%;border-style:dashed}
+.welcome-word{position:absolute;top:26%;left:50%;transform:translateX(-50%);font:700 clamp(58px,11vw,140px) "Space Grotesk",sans-serif;letter-spacing:-.07em;white-space:nowrap;z-index:1;animation:welcome 6s ease-in-out infinite;
+  color:transparent;-webkit-text-stroke:1.5px rgba(244,222,171,.55);text-shadow:0 0 60px rgba(217,185,111,.25)}
+.hero-cutout{position:relative;z-index:2;max-height:100%;max-width:104%;width:auto;object-fit:contain;object-position:bottom;filter:drop-shadow(0 34px 50px rgba(0,0,0,.62));animation:float 6s ease-in-out infinite}
+.photo-badge{position:absolute;z-index:3;bottom:11%;right:1%;background:rgba(20,23,32,.86);border:1px solid var(--line);border-radius:18px;padding:14px 18px;backdrop-filter:blur(14px);box-shadow:var(--shadow)}
 .photo-badge b{display:block;color:var(--gold2);font-size:13px;font-weight:800}
 .photo-badge small{color:var(--muted);font:11px "Space Grotesk",sans-serif}
+.hero-nameplate{position:absolute;z-index:3;bottom:11%;left:1%;background:linear-gradient(135deg,var(--gold2),var(--gold3));color:#17130b;border-radius:16px;padding:11px 16px;box-shadow:0 16px 34px -12px rgba(217,185,111,.6)}
+.hero-nameplate b{display:block;font:800 14px "Space Grotesk",sans-serif}
+.hero-nameplate small{font:11px Cairo,sans-serif;font-weight:700;opacity:.8}
+.photo-del{position:absolute;z-index:4;top:12px;left:12px;width:38px;height:38px;border-radius:12px;border:1px solid rgba(255,90,90,.4);background:rgba(30,12,14,.8);color:#ff9d9d;backdrop-filter:blur(10px);transition:.25s}
+.photo-del:hover{background:rgba(255,80,80,.25);transform:scale(1.06)}
+
+.tabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid var(--line2);margin-bottom:20px;padding-bottom:0}
+.tab{border:0;background:transparent;color:var(--muted);font-weight:700;font-size:13px;padding:11px 15px;border-bottom:2px solid transparent;transition:.25s;white-space:nowrap}
+.tab:hover{color:var(--gold2)}
+.tab.active{color:var(--gold2);border-bottom-color:var(--gold)}
+.tab-panel{display:none}.tab-panel.active{display:block}
+.repeat-item{border:1px solid var(--line2);border-radius:16px;padding:16px;margin-bottom:12px;background:rgba(255,255,255,.02);position:relative}
+.repeat-item .rm{position:absolute;top:12px;left:12px;width:32px;height:32px;border-radius:10px;border:1px solid rgba(255,90,90,.35);background:rgba(30,12,14,.6);color:#ff9d9d;font-size:14px;transition:.25s}
+.repeat-item .rm:hover{background:rgba(255,80,80,.22)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mini-label{font-size:11.5px;color:#dcc68f;font-weight:600;margin-bottom:6px;display:block}
+.range-row{display:flex;align-items:center;gap:12px}
+.range-row input[type=range]{flex:1;accent-color:var(--gold)}
+.range-val{min-width:52px;text-align:center;font-family:"Space Grotesk",sans-serif;font-weight:700;color:var(--gold2);background:rgba(217,185,111,.1);border-radius:9px;padding:5px 8px;font-size:12.5px}
+.photo-pick{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.photo-pick img{width:62px;height:78px;object-fit:cover;border-radius:10px;border:1px solid var(--line2);cursor:pointer;transition:.25s}
+.photo-pick img:hover{border-color:var(--gold);transform:translateY(-3px)}
+.modal-box.wide{width:min(760px,100%)}
+.form-actions.split{justify-content:space-between}
 
 .section{padding:110px 0;border-top:1px solid var(--line2);position:relative}
 .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:46px}
@@ -303,8 +327,8 @@ footer .mono{color:var(--muted);letter-spacing:.05em}
     <div class="en-name mono" id="heroEnName">MAZEN MEDHAT</div>
     <p class="hero-desc" id="heroBio">أهلاً بك في مساحتي الرقمية. أدرس بكلية الحاسبات والذكاء الاصطناعي بجامعة مدينة السادات، وأهتم بالبرمجة وبناء تجارب رقمية نظيفة وسريعة.</p>
     <div class="hero-actions">
-      <a class="btn primary" href="#projects">اكتشف مشاريعي <i class="fa-solid fa-arrow-left"></i></a>
-      <a class="btn ghost" href="#contact">خلّينا نتواصل <i class="fa-regular fa-paper-plane"></i></a>
+      <a class="btn primary" href="#projects"><span id="btnProjects">اكتشف مشاريعي</span> <i class="fa-solid fa-arrow-left"></i></a>
+      <a class="btn ghost" href="#contact"><span id="btnContact">خلّينا نتواصل</span> <i class="fa-regular fa-paper-plane"></i></a>
       <button class="btn ghost" id="cvBtn" onclick="downloadCV()"><i class="fa-solid fa-download"></i> تحميل السيرة</button>
     </div>
     <div class="hero-meta">
@@ -317,25 +341,26 @@ footer .mono{color:var(--muted);letter-spacing:.05em}
     <div class="visual-glow"></div>
     <div class="visual-ring"></div>
     <div class="welcome-word">WELCOME</div>
-    <img class="hero-photo" id="heroPhoto" src="assets/photo5.webp" alt="مازن مدحت">
+    <img class="hero-cutout" id="heroPhoto" src="assets/hero-cutout.png" alt="مازن مدحت">
+    <div class="hero-nameplate"><b class="mono">MAZEN MEDHAT</b><small id="nameplateSub">Personal Portfolio</small></div>
     <div class="photo-badge"><b>WELCOME TO MY SPACE</b><small class="mono">PERSONAL PORTFOLIO · 2026</small></div>
   </div>
 </section>
 
 <section class="section" id="about"><div class="wrap">
   <div class="section-head reveal">
-    <div><div class="kicker">01 / ABOUT ME</div><h2>نبذة <span class="accent">عنّي</span></h2></div>
-    <p>مساحة بسيطة للتعريف بي وباهتماماتي وأهدافي في مجال الحاسبات والذكاء الاصطناعي.</p>
+    <div><div class="kicker" id="aboutKicker">01 / ABOUT ME</div><h2><span id="aboutT1">نبذة</span> <span class="accent" id="aboutT2">عنّي</span></h2></div>
+    <p id="aboutSub">مساحة بسيطة للتعريف بي وباهتماماتي وأهدافي في مجال الحاسبات والذكاء الاصطناعي.</p>
   </div>
   <div class="about-grid reveal">
     <div class="panel">
-      <h3><i class="fa-solid fa-user-astronaut"></i> من أنا؟</h3>
+      <h3><i class="fa-solid fa-user-astronaut"></i> <span id="aboutCardTitle">من أنا؟</span></h3>
       <p id="aboutBio">أنا مازن مدحت، طالب بكلية الحاسبات والذكاء الاصطناعي – جامعة مدينة السادات. أحب استكشاف التقنيات الجديدة وبناء واجهات استخدام واضحة وسلسة، وأسعى دائمًا لتطوير مهاراتي في البرمجة وحل المشكلات.</p>
       <div class="stat-row" id="statRow"></div>
     </div>
     <div class="panel">
-      <h3><i class="fa-solid fa-compass-drafting"></i> هدفي</h3>
-      <p>أن أبني مسارًا مهنيًا في مجال الذكاء الاصطناعي وتطوير البرمجيات، وأن أشارك في مشاريع حقيقية تضيف قيمة، مع تعلّم مستمر واهتمام بالتفاصيل وتجربة المستخدم.</p>
+      <h3><i class="fa-solid fa-compass-drafting"></i> <span id="goalCardTitle">هدفي</span></h3>
+      <p id="goalText">أن أبني مسارًا مهنيًا في مجال الذكاء الاصطناعي وتطوير البرمجيات، وأن أشارك في مشاريع حقيقية تضيف قيمة، مع تعلّم مستمر واهتمام بالتفاصيل وتجربة المستخدم.</p>
       <div class="skills" id="skillList" style="margin-top:22px"></div>
     </div>
   </div>
@@ -343,40 +368,43 @@ footer .mono{color:var(--muted);letter-spacing:.05em}
 
 <section class="section" id="skills"><div class="wrap">
   <div class="section-head reveal">
-    <div><div class="kicker">02 / SKILLS</div><h2>مهاراتي <span class="accent">وقدراتي</span></h2></div>
-    <p>مجموعة المهارات التقنية التي أعمل على تطويرها بشكل مستمر.</p>
+    <div><div class="kicker" id="skillsKicker">02 / SKILLS</div><h2><span id="skillsT1">مهاراتي</span> <span class="accent" id="skillsT2">وقدراتي</span></h2></div>
+    <p id="skillsSub">مجموعة المهارات التقنية التي أعمل على تطويرها بشكل مستمر.</p>
   </div>
   <div class="panel reveal" id="skillBars"></div>
 </div></section>
 
 <section class="section" id="gallery"><div class="wrap">
   <div class="section-head reveal">
-    <div><div class="kicker">03 / PHOTO JOURNAL</div><h2>لحظات <span class="accent">من رحلتي</span></h2></div>
-    <p>مجموعة من الصور، مع إمكانية التعديل والإضافة من لوحة التحكم.</p>
+    <div><div class="kicker" id="galleryKicker">03 / PHOTO JOURNAL</div><h2><span id="galleryT1">لحظات</span> <span class="accent" id="galleryT2">من رحلتي</span></h2></div>
+    <p id="gallerySub">مجموعة من الصور، مع إمكانية التعديل والإضافة من لوحة التحكم.</p>
   </div>
   <div class="gallery reveal" id="galleryGrid"></div>
+  <div class="add-project" id="addPhotoWrap" style="display:none">
+    <button class="btn primary" onclick="openPhoto()"><i class="fa-solid fa-image"></i> إضافة صورة</button>
+  </div>
 </div></section>
 
 <section class="section" id="services"><div class="wrap">
   <div class="section-head reveal">
-    <div><div class="kicker">04 / SERVICES</div><h2>ما <span class="accent">أقدّمه</span></h2></div>
-    <p>مجالات العمل التي أحبّها وأركّز فيها خلال مشاريعي.</p>
+    <div><div class="kicker" id="servicesKicker">04 / SERVICES</div><h2><span id="servicesT1">ما</span> <span class="accent" id="servicesT2">أقدّمه</span></h2></div>
+    <p id="servicesSub">مجالات العمل التي أحبّها وأركّز فيها خلال مشاريعي.</p>
   </div>
   <div class="services reveal" id="servicesGrid"></div>
 </div></section>
 
 <section class="section" id="journey"><div class="wrap">
   <div class="section-head reveal">
-    <div><div class="kicker">05 / MY JOURNEY</div><h2>رحلتي <span class="accent">العلمية</span></h2></div>
-    <p>محطات مختصرة في مساري الأكاديمي والمهني.</p>
+    <div><div class="kicker" id="journeyKicker">05 / MY JOURNEY</div><h2><span id="journeyT1">رحلتي</span> <span class="accent" id="journeyT2">العلمية</span></h2></div>
+    <p id="journeySub">محطات مختصرة في مساري الأكاديمي والمهني.</p>
   </div>
   <div class="panel reveal"><div class="timeline" id="timeline"></div></div>
 </div></section>
 
 <section class="section" id="projects"><div class="wrap">
   <div class="section-head reveal">
-    <div><div class="kicker">06 / SELECTED WORK</div><h2>مشاريعي <span class="accent">وأعمالي</span></h2></div>
-    <p>أضف مشاريعك وروابطها، وسيتم عرضها تلقائيًا في هذه المساحة.</p>
+    <div><div class="kicker" id="projectsKicker">06 / SELECTED WORK</div><h2><span id="projectsT1">مشاريعي</span> <span class="accent" id="projectsT2">وأعمالي</span></h2></div>
+    <p id="projectsSub">أضف مشاريعك وروابطها، وسيتم عرضها تلقائيًا في هذه المساحة.</p>
   </div>
   <div class="projects" id="projectsGrid"></div>
   <div class="add-project" id="addProjectWrap" style="display:none">
@@ -386,14 +414,14 @@ footer .mono{color:var(--muted);letter-spacing:.05em}
 
 <section class="section" id="contact"><div class="wrap">
   <div class="section-head reveal">
-    <div><div class="kicker">07 / LET'S CONNECT</div><h2>تواصل <span class="accent">معي</span></h2></div>
-    <p>يمكنك الوصول إليّ من خلال حساباتي، أو إرسال رسالة مباشرة.</p>
+    <div><div class="kicker" id="contactKicker">07 / LET'S CONNECT</div><h2><span id="contactT1">تواصل</span> <span class="accent" id="contactT2">معي</span></h2></div>
+    <p id="contactSub">يمكنك الوصول إليّ من خلال حساباتي، أو إرسال رسالة مباشرة.</p>
   </div>
   <div class="contact-grid reveal">
     <div class="contact-info" id="contactInfo"></div>
     <div class="contact-form">
-      <h3>أرسل لي رسالة</h3>
-      <p class="cf-sub">سأرد عليك في أقرب وقت ممكن.</p>
+      <h3 id="formTitle">أرسل لي رسالة</h3>
+      <p class="cf-sub" id="formSub">سأرد عليك في أقرب وقت ممكن.</p>
       <form onsubmit="sendMessage(event)">
         <div class="field-row">
           <div class="field"><label>الاسم</label><input id="cName" required></div>
@@ -448,15 +476,80 @@ footer .mono{color:var(--muted);letter-spacing:.05em}
 </div>
 
 <div class="modal" id="settingsModal">
-  <div class="modal-box">
-    <div class="modal-head"><h3>تعديل بيانات الموقع</h3><button class="close" onclick="closeModal('settingsModal')">×</button></div>
-    <form onsubmit="saveSettings(event)">
+  <div class="modal-box wide">
+    <div class="modal-head"><h3><i class="fa-solid fa-sliders" style="color:var(--gold)"></i> لوحة التحكم</h3><button class="close" onclick="closeModal('settingsModal')">×</button></div>
+    <div class="tabs" id="adminTabs">
+      <button class="tab active" data-tab="general">عام</button>
+      <button class="tab" data-tab="titles">النصوص والعناوين</button>
+      <button class="tab" data-tab="skills">المهارات</button>
+      <button class="tab" data-tab="services">الخدمات والرحلة</button>
+      <button class="tab" data-tab="photos">الصور</button>
+      <button class="tab" data-tab="contact">التواصل</button>
+    </div>
+
+    <div class="tab-panel active" id="panel-general">
       <div class="field-row">
-        <div class="field"><label>الاسم</label><input id="sName" required></div>
-        <div class="field"><label>الاسم بالإنجليزية</label><input id="sEnName"></div>
+        <div class="field"><label>الاسم (عربي)</label><input id="sName" required></div>
+        <div class="field"><label>الاسم (إنجليزي)</label><input id="sEnName"></div>
       </div>
-      <div class="field"><label>النبذة التعريفية</label><textarea id="sBio" required></textarea></div>
-      <div class="field"><label>سطر تعريفي صغير (Eyebrow)</label><input id="sEyebrow"></div>
+      <div class="field"><label>النبذة في الهيرو</label><textarea id="sBio" required></textarea></div>
+      <div class="field"><label>النبذة في قسم "من أنا؟"</label><textarea id="sAbout"></textarea></div>
+      <div class="field-row">
+        <div class="field"><label>سطر صغير أعلى الاسم (Eyebrow)</label><input id="sEyebrow"></div>
+        <div class="field"><label>كلمة الهيرو الكبيرة</label><input id="sHeroWord" placeholder="WELCOME"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>نص زر المشاريع</label><input id="sBtnProjects"></div>
+        <div class="field"><label>نص زر التواصل</label><input id="sBtnContact"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>رابط السيرة الذاتية (PDF)</label><input id="sCv" type="url" placeholder="https://.../cv.pdf"></div>
+        <div class="field"><label>وصف تحت الاسم (Nameplate)</label><input id="sNameplateSub"></div>
+      </div>
+      <div class="field"><label>صورة الهيرو (اختر من الصور المتاحة)</label><input id="sHero" placeholder="assets/hero-cutout.png"><div class="photo-pick" id="heroPick"></div></div>
+    </div>
+
+    <div class="tab-panel" id="panel-titles">
+      <p class="hint">عدّل عناوين الأقسام: السطر الصغير (Kicker)، والكلمة الأولى، والكلمة الذهبية، والوصف.</p>
+      <div id="sectionEditors"></div>
+      <div class="field-row">
+        <div class="field"><label>عنوان كارت "من أنا؟"</label><input id="sAboutCardTitle"></div>
+        <div class="field"><label>عنوان كارت "هدفي"</label><input id="sGoalCardTitle"></div>
+      </div>
+      <div class="field"><label>نص كارت "هدفي"</label><textarea id="sGoalText"></textarea></div>
+      <div class="field-row">
+        <div class="field"><label>عنوان نموذج التواصل</label><input id="sFormTitle"></div>
+        <div class="field"><label>وصف نموذج التواصل</label><input id="sFormSub"></div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="panel-skills">
+      <p class="hint">اسحب الشريط لتعديل النسبة المئوية، أو أضف/احذف مهارة.</p>
+      <div id="skillEditors"></div>
+      <button type="button" class="btn sm ghost" onclick="addSkill()"><i class="fa-solid fa-plus"></i> إضافة مهارة</button>
+      <p class="hint" style="margin-top:20px">نقاط الاهتمام في كارت "هدفي":</p>
+      <div id="interestEditors"></div>
+      <button type="button" class="btn sm ghost" onclick="addInterest()"><i class="fa-solid fa-plus"></i> إضافة نقطة</button>
+    </div>
+
+    <div class="tab-panel" id="panel-services">
+      <p class="hint">الخدمات المعروضة في قسم "ما أقدّمه":</p>
+      <div id="serviceEditors"></div>
+      <button type="button" class="btn sm ghost" onclick="addService()"><i class="fa-solid fa-plus"></i> إضافة خدمة</button>
+      <p class="hint" style="margin-top:20px">محطات الرحلة العلمية:</p>
+      <div id="timelineEditors"></div>
+      <button type="button" class="btn sm ghost" onclick="addTimeline()"><i class="fa-solid fa-plus"></i> إضافة محطة</button>
+    </div>
+
+    <div class="tab-panel" id="panel-photos">
+      <p class="hint">أضف صورًا برابطها (مثل assets/photo1.webp أو رابط خارجي)، أو احذفها. يمكنك حذف الصور أيضًا مباشرةً من قسم المعرض.</p>
+      <div id="photoEditors"></div>
+      <button type="button" class="btn sm ghost" onclick="addPhoto()"><i class="fa-solid fa-plus"></i> إضافة صورة</button>
+      <p class="hint" style="margin-top:20px">الصور المتاحة (اضغط لاستخدامها كصورة هيرو):</p>
+      <div class="photo-pick" id="photoPool"></div>
+    </div>
+
+    <div class="tab-panel" id="panel-contact">
       <div class="field-row">
         <div class="field"><label>Instagram URL</label><input id="sInstagram" type="url"></div>
         <div class="field"><label>TikTok URL</label><input id="sTiktok" type="url"></div>
@@ -469,12 +562,13 @@ footer .mono{color:var(--muted);letter-spacing:.05em}
         <div class="field"><label>GitHub URL</label><input id="sGithub" type="url"></div>
         <div class="field"><label>Email</label><input id="sEmail" type="email"></div>
       </div>
-      <div class="field-row">
-        <div class="field"><label>رابط السيرة الذاتية (PDF)</label><input id="sCv" type="url" placeholder="https://.../cv.pdf"></div>
-        <div class="field"><label>صورة الهيرو</label><input id="sHero" placeholder="assets/photo5.webp"></div>
-      </div>
-      <div class="form-actions"><button type="button" class="btn ghost" onclick="closeModal('settingsModal')">إلغاء</button><button class="btn primary"><i class="fa-solid fa-floppy-disk"></i> حفظ</button></div>
-    </form>
+    </div>
+
+    <div class="form-actions split">
+      <button type="button" class="btn ghost" onclick="resetData()"><i class="fa-solid fa-rotate-left"></i> استعادة الافتراضي</button>
+      <span><button type="button" class="btn ghost" onclick="closeModal('settingsModal')">إلغاء</button>
+      <button type="button" class="btn primary" onclick="saveAll()"><i class="fa-solid fa-floppy-disk"></i> حفظ الكل</button></span>
+    </div>
   </div>
 </div>
 

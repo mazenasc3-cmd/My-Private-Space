@@ -11,9 +11,29 @@ const DEFAULTS = {
   eyebrow:"طالب حاسبات وذكاء اصطناعي · جامعة مدينة السادات",
   bio:"أهلاً بك في مساحتي الرقمية. أدرس بكلية الحاسبات والذكاء الاصطناعي بجامعة مدينة السادات، وأهتم بالبرمجة وبناء تجارب رقمية نظيفة وسريعة.",
   aboutText:"أنا مازن مدحت، طالب بكلية الحاسبات والذكاء الاصطناعي – جامعة مدينة السادات. أحب استكشاف التقنيات الجديدة وبناء واجهات استخدام واضحة وسلسة، وأسعى دائمًا لتطوير مهاراتي في البرمجة وحل المشكلات.",
-  heroPhoto:"assets/photo5.webp",
+  heroPhoto:"assets/hero-cutout.png",
+  heroWord:"WELCOME",
   cvUrl:"",
   instagram:"",tiktok:"",whatsapp:"",linkedin:"",github:"",email:"mazen@example.com",
+  texts:{
+    btnProjects:"اكتشف مشاريعي",
+    btnContact:"خلّينا نتواصل",
+    aboutCardTitle:"من أنا؟",
+    goalCardTitle:"هدفي",
+    goalText:"أن أبني مسارًا مهنيًا في مجال الذكاء الاصطناعي وتطوير البرمجيات، وأن أشارك في مشاريع حقيقية تضيف قيمة، مع تعلّم مستمر واهتمام بالتفاصيل وتجربة المستخدم.",
+    formTitle:"أرسل لي رسالة",
+    formSub:"سأرد عليك في أقرب وقت ممكن.",
+    nameplateSub:"Personal Portfolio"
+  },
+  sections:{
+    about:{kicker:"01 / ABOUT ME",t1:"نبذة",t2:"عنّي",sub:"مساحة بسيطة للتعريف بي وباهتماماتي وأهدافي في مجال الحاسبات والذكاء الاصطناعي."},
+    skills:{kicker:"02 / SKILLS",t1:"مهاراتي",t2:"وقدراتي",sub:"مجموعة المهارات التقنية التي أعمل على تطويرها بشكل مستمر."},
+    gallery:{kicker:"03 / PHOTO JOURNAL",t1:"لحظات",t2:"من رحلتي",sub:"مجموعة من الصور، مع إمكانية التعديل والإضافة من لوحة التحكم."},
+    services:{kicker:"04 / SERVICES",t1:"ما",t2:"أقدّمه",sub:"مجالات العمل التي أحبّها وأركّز فيها خلال مشاريعي."},
+    journey:{kicker:"05 / MY JOURNEY",t1:"رحلتي",t2:"العلمية",sub:"محطات مختصرة في مساري الأكاديمي والمهني."},
+    projects:{kicker:"06 / SELECTED WORK",t1:"مشاريعي",t2:"وأعمالي",sub:"أضف مشاريعك وروابطها، وسيتم عرضها تلقائيًا في هذه المساحة."},
+    contact:{kicker:"07 / LET'S CONNECT",t1:"تواصل",t2:"معي",sub:"يمكنك الوصول إليّ من خلال حساباتي، أو إرسال رسالة مباشرة."}
+  },
   stats:[["FCAI","الكلية"],["USC","الجامعة"],["2026","دفعة"]],
   interests:[
     ["البرمجة وحل المشكلات","fa-solid fa-code"],
@@ -34,7 +54,13 @@ const DEFAULTS = {
     ["2025","تعلّم أساسيات البرمجة","إتقان HTML و CSS و JavaScript وبناء أولى المشاريع."],
     ["2024","أول تجربة في تطوير الويب","العمل على مشاريع صغيرة وتعلّم Git وإدارة الإصدارات."]
   ],
-  photos:["assets/photo1.webp","assets/photo3.webp","assets/photo4.webp","assets/photo2.webp","assets/photo5.webp"],
+  photos:[
+    {src:"assets/photo1.webp",label:"A MOMENT IN THE STUDIO"},
+    {src:"assets/photo3.webp",label:"CAMPUS DAYS"},
+    {src:"assets/photo4.webp",label:"PORTRAIT"},
+    {src:"assets/photo2.webp",label:"MIRROR MOMENT"},
+    {src:"assets/photo5.webp",label:"OUTDOOR PORTRAIT"}
+  ],
   projects:[
     {id:1,title:"بوابة طلاب FCAI - USC",desc:"منصة لتنظيم المحتوى الأكاديمي والروابط والموارد الطلابية.",tags:["HTML","CSS","JavaScript"],github:"",live:""},
     {id:2,title:"محاكي الخوارزميات",desc:"فكرة مشروع لعرض خطوات الخوارزميات وهياكل البيانات بصورة تفاعلية.",tags:["C++","Algorithms"],github:"",live:""},
@@ -74,14 +100,36 @@ function openModal(id){ $(id).classList.add("open"); }
 
 function renderAll(){ renderHero(); renderAbout(); renderSkills(); renderGallery(); renderServices(); renderJourney(); renderProjects(); renderSocials(); renderContact(); }
 
-function renderHero(){
-  $("heroName").textContent = data.name;
-  $("heroEnName").textContent = data.enName || "";
-  $("heroBio").textContent = data.bio;
-  $("eyebrowText").textContent = data.eyebrow || "";
+function renderTexts(){
+  const t = data.texts || {};
+  const set=(id,v)=>{ const el=$(id); if(el) el.textContent = v ?? ""; };
+  set("heroName", data.name);
+  set("heroEnName", data.enName||"");
+  set("heroBio", data.bio);
+  set("eyebrowText", data.eyebrow||"");
+  set("btnProjects", t.btnProjects||"");
+  set("btnContact", t.btnContact||"");
+  set("aboutCardTitle", t.aboutCardTitle||"");
+  set("goalCardTitle", t.goalCardTitle||"");
+  set("goalText", t.goalText||"");
+  set("formTitle", t.formTitle||"");
+  set("formSub", t.formSub||"");
+  set("nameplateSub", t.nameplateSub||"");
+  $("nameplateSub").textContent = t.nameplateSub||"";
+  document.querySelector(".hero-nameplate b").textContent = data.enName||"";
+  const word = document.querySelector(".welcome-word"); if(word) word.textContent = data.heroWord || "WELCOME";
   if(data.heroPhoto) $("heroPhoto").src = data.heroPhoto;
   $("cvBtn").style.display = data.cvUrl ? "inline-flex" : "none";
 }
+
+function renderSections(){
+  for(const [id,sec] of Object.entries(data.sections||{})){
+    const set=(suf,v)=>{ const el=$(id+suf); if(el) el.textContent = v ?? ""; };
+    set("Kicker",sec.kicker); set("T1",sec.t1); set("T2",sec.t2); set("Sub",sec.sub);
+  }
+}
+
+function renderHero(){ renderTexts(); renderSections(); }
 
 function renderAbout(){
   $("aboutBio").textContent = data.aboutText || data.bio;
@@ -96,10 +144,14 @@ function renderSkills(){
 }
 
 function renderGallery(){
-  const labels = ["A MOMENT IN THE STUDIO","CAMPUS DAYS","PORTRAIT","MIRROR MOMENT","OUTDOOR PORTRAIT"];
-  $("galleryGrid").innerHTML = (data.photos||[]).map((src,i)=>
-    `<article class="gallery-card" onclick="openLightbox('${src}')"><img loading="lazy" src="${src}" alt="Mazen Medhat photo ${i+1}"><div class="gallery-label"><span>${labels[i]||("MOMENT "+(i+1))}</span><span class="mono">${String(i+1).padStart(2,"0")}</span></div></article>`
-  ).join("");
+  const photos = (data.photos||[]).map(p => typeof p==="string" ? {src:p,label:""} : p);
+  $("galleryGrid").innerHTML = photos.map((p,i)=>`
+    <article class="gallery-card" onclick="openLightbox('${p.src}')">
+      <img loading="lazy" src="${p.src}" alt="Mazen Medhat photo ${i+1}">
+      <div class="gallery-label"><span>${safe(p.label||("MOMENT "+(i+1)))}</span><span class="mono">${String(i+1).padStart(2,"0")}</span></div>
+      ${admin?`<button class="photo-del" title="حذف الصورة" onclick="event.stopPropagation();deletePhoto(${i})"><i class="fa-solid fa-trash"></i></button>`:""}
+    </article>`).join("");
+  const wrap=$("addPhotoWrap"); if(wrap) wrap.style.display = admin ? "flex" : "none";
 }
 
 function renderServices(){
@@ -182,25 +234,201 @@ async function tryLogin(e){
 }
 function adminLogout(){ sessionStorage.removeItem(SESSION_KEY); setAdmin(false); toast("تم الخروج"); }
 
+let draft = null;
+
+function esc(v){ return String(v??"").replace(/"/g,"&quot;"); }
+
 function openSettings(){
   if(!admin){ openModal("loginModal"); return; }
-  $("sName").value=data.name; $("sEnName").value=data.enName||""; $("sBio").value=data.bio; $("sEyebrow").value=data.eyebrow||"";
-  $("sInstagram").value=data.instagram; $("sTiktok").value=data.tiktok; $("sWhatsapp").value=data.whatsapp;
-  $("sLinkedin").value=data.linkedin; $("sGithub").value=data.github; $("sEmail").value=data.email;
-  $("sCv").value=data.cvUrl||""; $("sHero").value=data.heroPhoto||"";
+  draft = structuredClone(data);
+  fillGeneral();
+  renderSectionEditors();
+  renderSkillEditors();
+  renderInterestEditors();
+  renderServiceEditors();
+  renderTimelineEditors();
+  renderPhotoEditors();
+  renderHeroPick();
   openModal("settingsModal");
 }
-async function saveSettings(e){
-  e.preventDefault();
-  data = {...data,
-    name:$("sName").value.trim(), enName:$("sEnName").value.trim(), bio:$("sBio").value.trim(), eyebrow:$("sEyebrow").value.trim(),
-    instagram:$("sInstagram").value.trim(), tiktok:$("sTiktok").value.trim(), whatsapp:$("sWhatsapp").value.trim(),
-    linkedin:$("sLinkedin").value.trim(), github:$("sGithub").value.trim(), email:$("sEmail").value.trim(),
-    cvUrl:$("sCv").value.trim(), heroPhoto:$("sHero").value.trim() || data.heroPhoto
+
+function fillGeneral(){
+  $("sName").value=draft.name||""; $("sEnName").value=draft.enName||"";
+  $("sBio").value=draft.bio||""; $("sAbout").value=draft.aboutText||"";
+  $("sEyebrow").value=draft.eyebrow||""; $("sHeroWord").value=draft.heroWord||"WELCOME";
+  $("sBtnProjects").value=draft.texts?.btnProjects||""; $("sBtnContact").value=draft.texts?.btnContact||"";
+  $("sCv").value=draft.cvUrl||""; $("sNameplateSub").value=draft.texts?.nameplateSub||"";
+  $("sHero").value=draft.heroPhoto||"";
+  $("sAboutCardTitle").value=draft.texts?.aboutCardTitle||"";
+  $("sGoalCardTitle").value=draft.texts?.goalCardTitle||"";
+  $("sGoalText").value=draft.texts?.goalText||"";
+  $("sFormTitle").value=draft.texts?.formTitle||"";
+  $("sFormSub").value=draft.texts?.formSub||"";
+  $("sInstagram").value=draft.instagram||""; $("sTiktok").value=draft.tiktok||"";
+  $("sWhatsapp").value=draft.whatsapp||""; $("sLinkedin").value=draft.linkedin||"";
+  $("sGithub").value=draft.github||""; $("sEmail").value=draft.email||"";
+}
+
+const SECTION_LABELS = {about:"نبذة عني",skills:"المهارات",gallery:"معرض الصور",services:"الخدمات",journey:"الرحلة العلمية",projects:"المشاريع",contact:"تواصل معي"};
+function renderSectionEditors(){
+  $("sectionEditors").innerHTML = Object.entries(draft.sections||{}).map(([id,sec])=>`
+    <div class="repeat-item">
+      <b style="display:block;margin-bottom:12px;color:var(--gold2)">${SECTION_LABELS[id]||id}</b>
+      <div class="field-row">
+        <div class="field"><label class="mini-label">Kicker</label><input data-sec="${id}" data-k="kicker" value="${esc(sec.kicker)}"></div>
+        <div class="field"><label class="mini-label">الوصف</label><input data-sec="${id}" data-k="sub" value="${esc(sec.sub)}"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label class="mini-label">الكلمة الأولى</label><input data-sec="${id}" data-k="t1" value="${esc(sec.t1)}"></div>
+        <div class="field"><label class="mini-label">الكلمة الذهبية</label><input data-sec="${id}" data-k="t2" value="${esc(sec.t2)}"></div>
+      </div>
+    </div>`).join("");
+  $("sectionEditors").addEventListener("input", e=>{
+    const el=e.target; if(el.dataset.sec){ draft.sections[el.dataset.sec][el.dataset.k]=el.value; }
+  });
+}
+
+function renderSkillEditors(){
+  $("skillEditors").innerHTML = (draft.skillBars||[]).map(([t,v],i)=>`
+    <div class="repeat-item">
+      <button type="button" class="rm" onclick="rmSkill(${i})">×</button>
+      <div class="grid-2">
+        <div><label class="mini-label">اسم المهارة</label><input data-skill="${i}" data-k="name" value="${esc(t)}"></div>
+        <div><label class="mini-label">النسبة</label>
+          <div class="range-row"><input type="range" min="0" max="100" value="${Number(v)}" data-skill="${i}" data-k="val"><span class="range-val">${Number(v)}%</span></div>
+        </div>
+      </div>
+    </div>`).join("");
+  $("skillEditors").addEventListener("input", e=>{
+    const el=e.target; const i=el.dataset.skill; if(i===undefined) return;
+    if(el.dataset.k==="name") draft.skillBars[i][0]=el.value;
+    else { draft.skillBars[i][1]=Number(el.value); el.closest(".range-row").querySelector(".range-val").textContent=el.value+"%"; }
+  });
+}
+function addSkill(){ draft.skillBars.push(["مهارة جديدة",50]); renderSkillEditors(); }
+function rmSkill(i){ draft.skillBars.splice(i,1); renderSkillEditors(); }
+
+function renderInterestEditors(){
+  $("interestEditors").innerHTML = (draft.interests||[]).map(([t,ic],i)=>`
+    <div class="repeat-item">
+      <button type="button" class="rm" onclick="rmInterest(${i})">×</button>
+      <div class="grid-2">
+        <div><label class="mini-label">النص</label><input data-int="${i}" data-k="t" value="${esc(t)}"></div>
+        <div><label class="mini-label">أيقونة (Font Awesome)</label><input data-int="${i}" data-k="ic" value="${esc(ic)}"></div>
+      </div>
+    </div>`).join("");
+  $("interestEditors").addEventListener("input", e=>{
+    const el=e.target; const i=el.dataset.int; if(i===undefined) return;
+    draft.interests[i][el.dataset.k==="t"?0:1]=el.value;
+  });
+}
+function addInterest(){ draft.interests.push(["نقطة جديدة","fa-solid fa-star"]); renderInterestEditors(); }
+function rmInterest(i){ draft.interests.splice(i,1); renderInterestEditors(); }
+
+function renderServiceEditors(){
+  $("serviceEditors").innerHTML = (draft.services||[]).map(([ic,t,d],i)=>`
+    <div class="repeat-item">
+      <button type="button" class="rm" onclick="rmService(${i})">×</button>
+      <div class="grid-2">
+        <div><label class="mini-label">الأيقونة</label><input data-svc="${i}" data-k="ic" value="${esc(ic)}"></div>
+        <div><label class="mini-label">العنوان</label><input data-svc="${i}" data-k="t" value="${esc(t)}"></div>
+      </div>
+      <div class="field"><label class="mini-label">الوصف</label><input data-svc="${i}" data-k="d" value="${esc(d)}"></div>
+    </div>`).join("");
+  $("serviceEditors").addEventListener("input", e=>{
+    const el=e.target; const i=el.dataset.svc; if(i===undefined) return;
+    const k={ic:0,t:1,d:2}[el.dataset.k]; draft.services[i][k]=el.value;
+  });
+}
+function addService(){ draft.services.push(["fa-solid fa-star","خدمة جديدة","وصف الخدمة."]); renderServiceEditors(); }
+function rmService(i){ draft.services.splice(i,1); renderServiceEditors(); }
+
+function renderTimelineEditors(){
+  $("timelineEditors").innerHTML = (draft.timeline||[]).map(([dt,t,d],i)=>`
+    <div class="repeat-item">
+      <button type="button" class="rm" onclick="rmTimeline(${i})">×</button>
+      <div class="grid-2">
+        <div><label class="mini-label">السنة/التاريخ</label><input data-tl="${i}" data-k="dt" value="${esc(dt)}"></div>
+        <div><label class="mini-label">العنوان</label><input data-tl="${i}" data-k="t" value="${esc(t)}"></div>
+      </div>
+      <div class="field"><label class="mini-label">الوصف</label><input data-tl="${i}" data-k="d" value="${esc(d)}"></div>
+    </div>`).join("");
+  $("timelineEditors").addEventListener("input", e=>{
+    const el=e.target; const i=el.dataset.tl; if(i===undefined) return;
+    const k={dt:0,t:1,d:2}[el.dataset.k]; draft.timeline[i][k]=el.value;
+  });
+}
+function addTimeline(){ draft.timeline.push(["2026","محطة جديدة","وصف المحطة."]); renderTimelineEditors(); }
+function rmTimeline(i){ draft.timeline.splice(i,1); renderTimelineEditors(); }
+
+function normalizePhotos(list){ return (list||[]).map(p=> typeof p==="string"?{src:p,label:""}:p); }
+function renderPhotoEditors(){
+  draft.photos = normalizePhotos(draft.photos);
+  $("photoEditors").innerHTML = draft.photos.map((p,i)=>`
+    <div class="repeat-item" style="display:flex;gap:14px;align-items:center">
+      <img src="${esc(p.src)}" style="width:56px;height:70px;object-fit:cover;border-radius:10px;border:1px solid var(--line2)" alt="">
+      <div style="flex:1">
+        <div class="field" style="margin:0 0 8px"><label class="mini-label">رابط الصورة</label><input data-ph="${i}" data-k="src" value="${esc(p.src)}"></div>
+        <div class="field" style="margin:0"><label class="mini-label">التسمية</label><input data-ph="${i}" data-k="label" value="${esc(p.label)}"></div>
+      </div>
+      <button type="button" class="rm" style="position:static" onclick="rmPhotoEditor(${i})">×</button>
+    </div>`).join("");
+  $("photoEditors").addEventListener("input", e=>{
+    const el=e.target; const i=el.dataset.ph; if(i===undefined) return;
+    draft.photos[i][el.dataset.k]=el.value;
+  });
+}
+function addPhoto(){ draft.photos=normalizePhotos(draft.photos); draft.photos.push({src:"assets/photo1.webp",label:"MOMENT"}); renderPhotoEditors(); renderPhotoPool(); }
+function rmPhotoEditor(i){ draft.photos.splice(i,1); renderPhotoEditors(); renderPhotoPool(); }
+
+function renderPhotoPool(){
+  const pool = $("photoPool"); if(!pool) return;
+  const all = ["assets/hero-cutout.png", ...normalizePhotos(draft.photos).map(p=>p.src)];
+  pool.innerHTML = [...new Set(all)].map(src=>`<img src="${esc(src)}" title="استخدام كصورة هيرو" onclick="pickHero('${esc(src)}')" alt="">`).join("");
+}
+function renderHeroPick(){ renderPhotoPool(); }
+function pickHero(src){ $("sHero").value=src; toast("تم اختيار صورة الهيرو"); }
+
+function collectGeneral(){
+  draft.name=$("sName").value.trim(); draft.enName=$("sEnName").value.trim();
+  draft.bio=$("sBio").value.trim(); draft.aboutText=$("sAbout").value.trim();
+  draft.eyebrow=$("sEyebrow").value.trim(); draft.heroWord=$("sHeroWord").value.trim()||"WELCOME";
+  draft.cvUrl=$("sCv").value.trim(); draft.heroPhoto=$("sHero").value.trim()||draft.heroPhoto;
+  draft.instagram=$("sInstagram").value.trim(); draft.tiktok=$("sTiktok").value.trim();
+  draft.whatsapp=$("sWhatsapp").value.trim(); draft.linkedin=$("sLinkedin").value.trim();
+  draft.github=$("sGithub").value.trim(); draft.email=$("sEmail").value.trim();
+  draft.texts = {...(draft.texts||{}),
+    btnProjects:$("sBtnProjects").value.trim(), btnContact:$("sBtnContact").value.trim(),
+    nameplateSub:$("sNameplateSub").value.trim(), aboutCardTitle:$("sAboutCardTitle").value.trim(),
+    goalCardTitle:$("sGoalCardTitle").value.trim(), goalText:$("sGoalText").value.trim(),
+    formTitle:$("sFormTitle").value.trim(), formSub:$("sFormSub").value.trim()
   };
+}
+
+async function saveAll(){
+  collectGeneral();
+  data = structuredClone(draft);
   const where = await DataStore.save(data);
   renderAll(); closeModal("settingsModal");
   toast(where==="server" ? "تم الحفظ على السيرفر" : "تم الحفظ محليًا");
+}
+
+async function resetData(){
+  if(!confirm("استعادة البيانات الافتراضية؟ سيتم فقدان تعديلاتك.")) return;
+  data = structuredClone(DEFAULTS);
+  await DataStore.save(data); renderAll(); closeModal("settingsModal"); toast("تم استعادة الافتراضي");
+}
+
+async function deletePhoto(i){
+  if(!confirm("حذف هذه الصورة من المعرض؟")) return;
+  data.photos = normalizePhotos(data.photos); data.photos.splice(i,1);
+  await DataStore.save(data); renderGallery(); toast("تم حذف الصورة");
+}
+function openPhoto(){ if(!admin) return openModal("loginModal"); openSettings(); switchTab("photos"); addPhoto(); }
+
+function switchTab(name){
+  document.querySelectorAll("#adminTabs .tab").forEach(t=>t.classList.toggle("active", t.dataset.tab===name));
+  document.querySelectorAll(".tab-panel").forEach(p=>p.classList.toggle("active", p.id==="panel-"+name));
 }
 
 function openProject(p=null){
@@ -267,6 +495,7 @@ function closeLightbox(){ $("lightbox").classList.remove("open"); }
   if(location.hash==="#admin" && !admin) openModal("loginModal");
 
   document.querySelectorAll(".modal").forEach(m=>m.addEventListener("click",e=>{ if(e.target===m) m.classList.remove("open"); }));
+  $("adminTabs").addEventListener("click", e=>{ const t=e.target.closest(".tab"); if(t) switchTab(t.dataset.tab); });
   $("lightbox").addEventListener("click",e=>{ if(e.target.id==="lightbox") closeLightbox(); });
   document.addEventListener("keydown", e=>{ if(e.key==="Escape"){ closeLightbox(); document.querySelectorAll(".modal.open").forEach(m=>m.classList.remove("open")); } });
 
