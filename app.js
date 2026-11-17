@@ -62,9 +62,10 @@ const DEFAULTS = {
     {src:"assets/photo5.webp",label:"OUTDOOR PORTRAIT"}
   ],
   projects:[
-    {id:1,title:"بوابة طلاب FCAI - USC",desc:"منصة لتنظيم المحتوى الأكاديمي والروابط والموارد الطلابية.",tags:["HTML","CSS","JavaScript"],github:"",live:""},
-    {id:2,title:"محاكي الخوارزميات",desc:"فكرة مشروع لعرض خطوات الخوارزميات وهياكل البيانات بصورة تفاعلية.",tags:["C++","Algorithms"],github:"",live:""},
-    {id:3,title:"لوحة إدارة المهام",desc:"واجهة لإدارة المهام اليومية مع تجربة استخدام بسيطة وسريعة.",tags:["JavaScript","UI Design"],github:"",live:""}
+    {id:1,title:"موقعي الشخصي (Portfolio)",desc:"موقع شخصي احترافي بواجهة عربية (RTL) + لوحة تحكم محمية بكلمة سر لتعديل كل المحتوى، مع طبقة بيانات جاهزة للربط بـ Vercel.",tags:["HTML","CSS","JavaScript","RTL"],github:"https://github.com/mazenasc3-cmd/My-Private-Space",live:"https://mazenasc3-cmd.github.io/My-Private-Space/",image:"assets/shot-portfolio.webp"},
+    {id:2,title:"موقع دار روضة المحبين",desc:"موقع لدار تحفيظ القرآن الكريم: الخاتمون، الحفلات، الأخبار، ومساعد ذكي للأسئلة في القرآن والتجويد والسنة، مع تحديث فوري للبيانات.",tags:["HTML","JavaScript","Firebase","Vercel"],github:"https://github.com/mazenasc3-cmd/rawdat-almuhibbin-",live:"https://rawdat-almuhibbin.vercel.app",image:"assets/shot-rawdat.webp"},
+    {id:3,title:"بوابة طلاب FCAI - USC",desc:"منصة لتنظيم المحتوى الأكاديمي والروابط والموارد الطلابية.",tags:["HTML","CSS","JavaScript"],github:"",live:""},
+    {id:4,title:"محاكي الخوارزميات",desc:"فكرة مشروع لعرض خطوات الخوارزميات وهياكل البيانات بصورة تفاعلية.",tags:["C++","Algorithms"],github:"",live:""}
   ]
 };
 
@@ -170,6 +171,7 @@ function renderProjects(){
   const list = data.projects || [];
   $("projectsGrid").innerHTML = list.length ? list.map((p,i)=>`
     <article class="project">
+      ${p.image?`<div class="project-thumb"><img loading="lazy" src="${safe(p.image)}" alt="${safe(p.title)}"></div>`:""}
       <div class="project-top"><span class="mono">PROJECT / ${String(i+1).padStart(2,"0")}</span>
         <span>${admin?`<button onclick="editProject(${p.id})" aria-label="تعديل" style="background:none;border:0;color:var(--gold)"><i class="fa-solid fa-pen"></i></button> <button onclick="deleteProject(${p.id})" aria-label="حذف" style="background:none;border:0;color:#ff9d9d"><i class="fa-solid fa-trash"></i></button>`:""}</span>
       </div>
@@ -382,9 +384,9 @@ function addPhoto(){ draft.photos=normalizePhotos(draft.photos); draft.photos.pu
 function rmPhotoEditor(i){ draft.photos.splice(i,1); renderPhotoEditors(); renderPhotoPool(); }
 
 function renderPhotoPool(){
-  const pool = $("photoPool"); if(!pool) return;
-  const all = ["assets/hero-cutout.png", ...normalizePhotos(draft.photos).map(p=>p.src)];
-  pool.innerHTML = [...new Set(all)].map(src=>`<img src="${esc(src)}" title="استخدام كصورة هيرو" onclick="pickHero('${esc(src)}')" alt="">`).join("");
+  const all = [...new Set(["assets/hero-cutout.png", ...normalizePhotos(draft.photos).map(p=>p.src)])];
+  const html = all.map(src=>`<img src="${esc(src)}" title="استخدام كصورة هيرو" onclick="pickHero('${esc(src)}')" alt="">`).join("");
+  ["photoPool","heroPick"].forEach(id=>{ const el=$(id); if(el) el.innerHTML=html; });
 }
 function renderHeroPick(){ renderPhotoPool(); }
 function pickHero(src){ $("sHero").value=src; toast("تم اختيار صورة الهيرو"); }
@@ -436,15 +438,23 @@ function openProject(p=null){
   $("projectForm").reset();
   $("projectId").value = p?.id || "";
   $("projectModalTitle").textContent = p ? "تعديل المشروع" : "إضافة مشروع جديد";
-  if(p){ $("projectTitle").value=p.title; $("projectDesc").value=p.desc; $("projectTags").value=(p.tags||[]).join(", "); $("projectGithub").value=p.github||""; $("projectLive").value=p.live||""; }
+  if(p){ $("projectTitle").value=p.title; $("projectDesc").value=p.desc; $("projectTags").value=(p.tags||[]).join(", "); $("projectGithub").value=p.github||""; $("projectLive").value=p.live||""; $("projectImage").value=p.image||""; }
+  renderProjectImagePick();
   openModal("projectModal");
+}
+
+function renderProjectImagePick(){
+  const pick=$("projectImagePick"); if(!pick) return;
+  const srcs=[...new Set(["assets/shot-portfolio.webp","assets/shot-rawdat.webp", ...normalizePhotos(data.photos).map(p=>p.src)])];
+  pick.innerHTML = srcs.map(src=>`<img src="${esc(src)}" title="استخدام هذه الصورة" onclick="document.getElementById('projectImage').value='${esc(src)}'" alt="">`).join("");
 }
 function editProject(id){ openProject((data.projects||[]).find(p=>p.id===id)); }
 async function saveProject(e){
   e.preventDefault();
   const id = $("projectId").value;
   const p = { id: id?Number(id):Date.now(), title:$("projectTitle").value.trim(), desc:$("projectDesc").value.trim(),
-    tags:$("projectTags").value.split(",").map(x=>x.trim()).filter(Boolean), github:$("projectGithub").value.trim(), live:$("projectLive").value.trim() };
+    tags:$("projectTags").value.split(",").map(x=>x.trim()).filter(Boolean), github:$("projectGithub").value.trim(),
+    live:$("projectLive").value.trim(), image:$("projectImage").value.trim() };
   data.projects = data.projects || [];
   if(id) data.projects = data.projects.map(x=>x.id===Number(id)?p:x); else data.projects.unshift(p);
   const where = await DataStore.save(data);
