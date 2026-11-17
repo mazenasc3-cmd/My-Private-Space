@@ -35,19 +35,28 @@ Hero · نبذة عني · المهارات · معرض الصور · الخدم
 زر **"استعادة الافتراضي"** يرجّع كل البيانات للقيم الأصلية.
 
 ## ربط البيانات بـ Vercel
-طبقة البيانات معزولة في `DataStore` جوه `index.html`:
+طبقة البيانات معزولة في `DataStore` جوه `app.js`:
 
 - **القراءة:** `window.SITE_DATA` ← ثم `GET /api/data` ← ثم `localStorage` ← ثم القيم الافتراضية.
-- **الكتابة:** `POST /api/data` بالـ JSON الكامل ← وإلا `localStorage` كـ fallback.
+- **الكتابة:** `POST /api/data` (بالـ JSON) ← وإلا `localStorage` كـ fallback.
 
 عقد الـ API:
 
 ```
-GET  /api/data   -> 200 + JSON  (نفس شكل DEFAULTS في index.html)
-POST /api/data   -> 200 OK      (body = JSON كامل للبيانات)
+GET  /api/data                       -> 200 + JSON  (نفس شكل DEFAULTS في app.js)
+POST /api/data  {pass, data}         -> 200 {ok:1}  (يتطلب ADMIN_PASSWORD)
+POST /api/data  {..الكائن كامل..}    -> 200 {ok:1}  (العقد القديم بدون pass، يعمل لو ADMIN_PASSWORD غير مضبوط)
 ```
 
-ما عليك إلا إنك تعمل `/api/data` على Vercel (Serverless Function + KV/DB) وتخزّن/ترجّع نفس شكل الكائن.
+`api/data.js` جاهز ومستضاف على Vercel. كل اللي محتاجه متغيّرات البيئة:
+
+| المتغيّر | الوصف |
+| --- | --- |
+| `KV_REST_API_URL` أو `UPSTASH_REDIS_REST_URL` | رابط قاعدة Upstash Redis |
+| `KV_REST_API_TOKEN` أو `UPSTASH_REDIS_REST_TOKEN` | توكن Upstash Redis |
+| `ADMIN_PASSWORD` | كلمة سر الحفظ على السيرفر (المستحسن ضبطها لحماية الكتابة) |
+
+**مهم:** بدون قاعدة Redis وكلمة السر دي، تعديلات لوحة التحكم تُحفظ في `localStorage` بمتصفحك فقط ولا تظهر لأي زائر آخر.
 
 ## تشغيل محلي
 ```bash

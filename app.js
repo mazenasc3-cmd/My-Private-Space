@@ -77,14 +77,14 @@ const DataStore = {
     if (window.SITE_DATA) return window.SITE_DATA;
     try{
       const r = await fetch("/api/data", {headers:{Accept:"application/json"}});
-      if (r.ok){ const j = await r.json(); if (j && typeof j === "object") return j; }
+      if (r.ok){ const j = await r.json(); if (j && typeof j === "object" && Object.keys(j).length) return j; }
     }catch(_){}
     try{ const ls = JSON.parse(localStorage.getItem(DATA_KEY) || "null"); if (ls) return ls; }catch(_){}
     return null;
   },
   async save(data){
     try{
-      const r = await fetch("/api/data", {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(data)});
+      const r = await fetch("/api/data", {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({pass:adminPass, data})});
       if (r.ok) return "server";
     }catch(_){}
     localStorage.setItem(DATA_KEY, JSON.stringify(data));
@@ -94,6 +94,7 @@ const DataStore = {
 
 let data = structuredClone(DEFAULTS);
 let admin = false;
+let adminPass = "";
 
 function toast(msg){ $("toastMsg").textContent = msg; $("toast").classList.add("show"); clearTimeout(toast._t); toast._t = setTimeout(()=>$("toast").classList.remove("show"), 2600); }
 function closeModal(id){ $(id).classList.remove("open"); }
@@ -231,10 +232,12 @@ async function tryLogin(e){
   const pass = $("adminPass").value;
   if (await sha256(pass) === ADMIN_PASSWORD_HASH){
     sessionStorage.setItem(SESSION_KEY,"1");
+    sessionStorage.setItem(SESSION_KEY+"_p", pass);
+    adminPass = pass;
     setAdmin(true); closeModal("loginModal"); $("adminPass").value=""; toast("تم الدخول بنجاح");
   } else { toast("كلمة المرور غير صحيحة"); }
 }
-function adminLogout(){ sessionStorage.removeItem(SESSION_KEY); setAdmin(false); toast("تم الخروج"); }
+function adminLogout(){ sessionStorage.removeItem(SESSION_KEY); sessionStorage.removeItem(SESSION_KEY+"_p"); adminPass=""; setAdmin(false); toast("تم الخروج"); }
 
 let draft = null;
 
@@ -492,7 +495,7 @@ function closeLightbox(){ $("lightbox").classList.remove("open"); }
   renderAll();
   $("year").textContent = new Date().getFullYear();
 
-  if(sessionStorage.getItem(SESSION_KEY)==="1") setAdmin(true);
+  if(sessionStorage.getItem(SESSION_KEY)==="1"){ adminPass = sessionStorage.getItem(SESSION_KEY+"_p") || ""; setAdmin(true); }
 
   let clicks=0, timer=null;
   $("brand").addEventListener("click", ()=>{
